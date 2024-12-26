@@ -14,20 +14,24 @@ class Main {
 		
 	}
   public static Node<Integer> q1(Node<Integer> a){
-		Node<Integer> st = a;
-		while(a.hasNext()) {
-			while(a.hasNext()) {
-			if(a.getValue()==a.getNext().getValue()) {
-				a.setNext(a.getNext().getNext());
+		Node<Integer> save = a;
+		Node<Integer> cur = a;
+		while(a!=null) {
+			cur = a;
+			while(cur.hasNext()) {
+			//	System.out.println(1);
+				
+			if(a.getValue()==cur.getNext().getValue()) {
+				cur.setNext(cur.getNext().getNext());
 			}
 			else {
-				a=a.getNext();
+				cur=cur.getNext();
 			}
 			}
-			a = st;
+			
 			a = a.getNext();
 		}
-		return st;
+		return save;
 	}
   public static void main(String[] args) {
     System.out.println("Hello World!");
